@@ -84,16 +84,55 @@
 
         <li class="c-sidebar-nav-item">
             <x-utils.link class="c-sidebar-nav-link" :href="route('admin.client.index')"
-                :active="activeClass(Route::is('admin.client.*'), 'c-active')"
-                icon="c-sidebar-nav-icon cil-people" text="Clients" />
+                :active="activeClass(Route::is('admin.client.*'), 'c-active')" icon="c-sidebar-nav-icon cil-people"
+                text="Clients" />
         </li>
 
         <li class="c-sidebar-nav-item">
             <x-utils.link class="c-sidebar-nav-link" :href="route('admin.task.index')"
-                :active="activeClass(Route::is('admin.task.*'), 'c-active')"
-                icon="c-sidebar-nav-icon cil-task" text="Tasks" />
-        </li>        
+                :active="activeClass(Route::is('admin.task.*'), 'c-active')" icon="c-sidebar-nav-icon cil-task"
+                text="Tasks" />
+        </li>
 
+        <li class="c-sidebar-nav-item">
+            <x-utils.link class="c-sidebar-nav-link" :href="route('admin.task.index')"
+                :active="activeClass(Route::is('admin.task.*'), 'c-active')" icon="c-sidebar-nav-icon cil-file"
+                text="Cases" />
+        </li>
+
+        <li class="c-sidebar-nav-item">
+            <x-utils.link class="c-sidebar-nav-link" :href="route('admin.task.index')"
+                :active="activeClass(Route::is('admin.task.*'), 'c-active')" icon="c-sidebar-nav-icon cil-dollar"
+                text="Finance" />
+        </li>
+
+        <li class="c-sidebar-nav-item">
+            <x-utils.link class="c-sidebar-nav-link" :href="route('admin.task.index')"
+                :active="activeClass(Route::is('admin.task.*'), 'c-active')" icon="c-sidebar-nav-icon cil-calendar"
+                text="Events" />
+        </li>
+
+        <li class="c-sidebar-nav-item">
+            <x-utils.link class="c-sidebar-nav-link" :href="route('admin.task.index')"
+                :active="activeClass(Route::is('admin.task.*'), 'c-active')" icon="c-sidebar-nav-icon cil-folder"
+                text="Documents" />
+        </li>
+<hr/>
+        @role('Administrator|LMS Admin|Tenant Admin')
+        <li class="c-sidebar-nav-item">
+            <x-utils.link class="c-sidebar-nav-link" :href="route('admin.task.index')"
+                :active="activeClass(Route::is('admin.task.*'), 'c-active')" icon="c-sidebar-nav-icon cil-user"
+                text="Staff" />
+        </li>
+        @endrole
+
+        @role('Administrator|LMS Admin')
+        <li class="c-sidebar-nav-item">
+            <x-utils.link class="c-sidebar-nav-link" :href="route('admin.task.index')"
+                :active="activeClass(Route::is('admin.task.*'), 'c-active')" icon="c-sidebar-nav-icon cil-house"
+                text="Tenants" />
+        </li>
+        @endrole
     </ul>
 
     <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent"

@@ -117,8 +117,9 @@
                 :active="activeClass(Route::is('admin.task.*'), 'c-active')" icon="c-sidebar-nav-icon cil-folder"
                 text="Documents" />
         </li>
-<hr/>
+
         @role('Administrator|LMS Admin|Tenant Admin')
+        <li class="c-sidebar-nav-title">Admin</li>
         <li class="c-sidebar-nav-item">
             <x-utils.link class="c-sidebar-nav-link" :href="route('admin.task.index')"
                 :active="activeClass(Route::is('admin.task.*'), 'c-active')" icon="c-sidebar-nav-icon cil-user"

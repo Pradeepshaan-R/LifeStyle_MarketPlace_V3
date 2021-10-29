@@ -1,16 +1,11 @@
 <footer class="c-footer">
     <div>
-        <strong>
-            @lang('Copyright') &copy; {{ date('Y') }}
-            <x-utils.link href="http://laravel-boilerplate.com" target="_blank" :text="__(appName())" />
-        </strong>
-
-        @lang('All Rights Reserved')
+        Copyright &copy; 2020
+            <x-utils.link href="http://www.aventagelabs.com/" target="_blank" text="Aventage Labs" />
     </div>
 
     <div class="mfs-auto">
-        @lang('Powered by')
-        <x-utils.link href="http://laravel-boilerplate.com" target="_blank" :text="__(appName())" /> &
-        <x-utils.link href="https://coreui.io" target="_blank" text="CoreUI" />
+        {{$logged_in_user->user_extra->tenant->tenant_name }}
+        ({{$logged_in_user->roles[0]->name}})
     </div>
 </footer>

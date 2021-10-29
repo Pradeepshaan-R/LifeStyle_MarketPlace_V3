@@ -1,5 +1,5 @@
 <template>
-    <span>Laravel Boilerplate</span>
+    <span>Lawyer Management System</span>
 </template>
 
 <script>

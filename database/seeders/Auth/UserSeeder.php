@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
         //id=2
         User::create([
             'type' => User::TYPE_ADMIN,
-            'name' => 'Admin',
+            'name' => 'LMS Admin',
             'email' => 'lms_admin@test.com',
             'password' => 'secret',
             'email_verified_at' => now(),
@@ -43,7 +43,7 @@ class UserSeeder extends Seeder
         //id=3
         User::create([
             'type' => User::TYPE_ADMIN,
-            'name' => 'Admin',
+            'name' => 'Tenant1 Admin',
             'email' => 'tenant1_admin@test.com',
             'password' => 'secret',
             'email_verified_at' => now(),
@@ -53,7 +53,7 @@ class UserSeeder extends Seeder
         //id=4
         User::create([
             'type' => User::TYPE_ADMIN,
-            'name' => 'Admin',
+            'name' => 'Manager1',
             'email' => 'manager1@test.com',
             'password' => 'secret',
             'email_verified_at' => now(),
@@ -63,7 +63,7 @@ class UserSeeder extends Seeder
         //id=5
         User::create([
             'type' => User::TYPE_ADMIN,
-            'name' => 'Admin',
+            'name' => 'Staff1',
             'email' => 'staff1@test.com',
             'password' => 'secret',
             'email_verified_at' => now(),
@@ -73,7 +73,7 @@ class UserSeeder extends Seeder
         //id=6
         User::create([
             'type' => User::TYPE_USER,
-            'name' => 'Test User',
+            'name' => 'Client1',
             'email' => 'client1@user.com',
             'password' => 'secret',
             'email_verified_at' => now(),

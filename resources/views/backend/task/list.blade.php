@@ -56,9 +56,9 @@
                             @foreach ($task_list as $one)
                             <tr>
                                 <td>{{ $one->type }}</td>
-                                <td>{{ $one->task_no }}</td>
-                                <td>{{ $one->task_amount }}</td>
-                                <td>{{ $one->task_note }}</td>
+                                <td>{{ $one->no }}</td>
+                                <td>{{ $one->amount }}</td>
+                                <td>{{ $one->note }}</td>
                                 <td class="text-right">
                                     <div class="btn-group" role="group" aria-label="user_actions">
                                         <a href="{{ url('admin/task') }}/{{$one->id}}" data-toggle="tooltip"

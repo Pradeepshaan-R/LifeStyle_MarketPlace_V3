@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Task;
 use Exception;
 use Illuminate\Http\Request;
+use DB;
 
 class TaskController extends Controller
 {
@@ -38,16 +39,21 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+        $message = "";
+        DB::beginTransaction();
         try {
-            $client = new Task();
-            $client->task_no = $request->task_no;
-            $client->task_amount = $request->task_amount;
-            $client->task_note = $request->task_note;
-            $client->save();
+            $task = new Task();
+            $task->no = $request->no;
+            $task->amount = $request->amount;
+            $task->note = $request->note;
+            $task->save();
+            $message = 'Adding Successful';
+            DB::commit();
         } catch (Exception $ex) {
-
+            DB::rollBack();
+            $message = 'Adding Unsuccessful';
         }
-        return redirect('admin/task')->withFlashSuccess('Adding Successful');
+        return redirect('admin/task')->withFlashSuccess($message);
     }
 
     /**
@@ -62,17 +68,6 @@ class TaskController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Task  $task
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Task $task)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -81,7 +76,20 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+        $message = "";
+        DB::beginTransaction();
+        try {
+            $task->no = $request->no;
+            $task->amount = $request->amount;
+            $task->note = $request->note;
+            $task->save();
+            $message = 'Update Successful';
+            DB::commit();
+        } catch (Exception $ex) {
+            DB::rollBack();
+            $message = 'Update Unsuccessful';
+        }
+        return redirect('admin/client')->withFlashInfo($message);
     }
 
     /**

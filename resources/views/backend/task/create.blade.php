@@ -33,27 +33,27 @@
                 <label for="name" class="col-sm-2 col-form-label text-right">Task Number</label>
 
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="task_no" name="task_no" placeholder="Task Number"
-                        required value="{{old('task_no')}}" />
-                    @error('task_no') <span class="text-danger error">{{ $message }}</span>@enderror
+                    <input type="text" class="form-control" id="no" name="no" placeholder="Task Number"
+                        required value="{{old('no')}}" />
+                    @error('no') <span class="text-danger error">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label text-right">Task Amount</label>
 
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="task_no" name="task_amount" placeholder="Task Amount"
-                        required value="{{old('task_amount')}}" />
-                    @error('task_amount') <span class="text-danger error">{{ $message }}</span>@enderror
+                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Task Amount"
+                        required value="{{old('amount')}}" />
+                    @error('amount') <span class="text-danger error">{{ $message }}</span>@enderror
                 </div>
             </div>
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label text-right">Task Note</label>
 
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="task_note" name="task_note" placeholder="Task Note"
-                        required value="{{old('task_note')}}" />
-                    @error('task_note') <span class="text-danger error">{{ $message }}</span>@enderror
+                    <input type="text" class="form-control" id="note" name="note" placeholder="Task Note"
+                        required value="{{old('note')}}" />
+                    @error('note') <span class="text-danger error">{{ $message }}</span>@enderror
                 </div>
             </div>
 

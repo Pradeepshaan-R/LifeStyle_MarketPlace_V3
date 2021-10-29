@@ -52,18 +52,18 @@ $(function() {
             <div class="form-group row">
                 <label for="contact" class="col-sm-2 col-form-label text-right">Task Number</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" id="task_no" name="task_no" placeholder="Task Number"
-                        required value="{{$task->task_no}}" readonly="readonly" />
-                    @error('task_no') <span class="text-danger error">{{ $message }}</span>@enderror
+                    <input type="text" class="form-control" id="no" name="no" placeholder="Task Number"
+                        required value="{{$task->no}}" readonly="readonly" />
+                    @error('no') <span class="text-danger error">{{ $message }}</span>@enderror
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="contact" class="col-sm-2 col-form-label text-right">Task Amount</label>
                 <div class="col-sm-5">
-                    <input type="text" class="form-control" id="task_no" name="task_amount" placeholder="Task Amount"
-                        required value="{{$task->task_amount}}" readonly="readonly" />
-                    @error('task_amount') <span class="text-danger error">{{ $message }}</span>@enderror
+                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Task Amount"
+                        required value="{{$task->amount}}" readonly="readonly" />
+                    @error('amount') <span class="text-danger error">{{ $message }}</span>@enderror
                 </div>
             </div>
 

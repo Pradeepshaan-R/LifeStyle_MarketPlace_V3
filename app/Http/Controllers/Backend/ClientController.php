@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Client;
 use Exception;
 use Illuminate\Http\Request;
+use DB;
 
 class ClientController extends Controller
 {
@@ -38,16 +39,21 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
+        $message = "";
+        DB::beginTransaction();
         try {
             $client = new Client();
             $client->company_name = $request->company_name;
             $client->company_phone = $request->company_phone;
             $client->company_email = $request->company_email;
             $client->save();
+            $message = 'Adding Successful';
+            DB::commit();
         } catch (Exception $ex) {
-
+            DB::rollBack();
+            $message = 'Adding Unsuccessful';
         }
-        return redirect('admin/client')->withFlashSuccess('Adding Successful');
+        return redirect('admin/client')->withFlashInfo($message);
     }
 
     /**
@@ -62,17 +68,6 @@ class ClientController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Client  $client
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Client $client)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -81,7 +76,20 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
+        $message = "";
+        DB::beginTransaction();
+        try {
+            $client->company_name = $request->company_name;
+            $client->company_phone = $request->company_phone;
+            $client->company_email = $request->company_email;
+            $client->save();
+            $message = 'Update Successful';
+            DB::commit();
+        } catch (Exception $ex) {
+            DB::rollBack();
+            $message = 'Update Unsuccessful';
+        }
+        return redirect('admin/client')->withFlashInfo($message);
     }
 
     /**
@@ -96,7 +104,7 @@ class ClientController extends Controller
             $client->delete();
             $this->message = "Delete successful";
         } catch (Exception $ex) {
-            $this->message = "Delete Unsuccessful. You are not the owner.";
+            $this->message = "Delete unsuccessful. You may not be the owner.";
             $this->code = 401;
         }
         return redirect('admin/client')->withFlashInfo($this->message);

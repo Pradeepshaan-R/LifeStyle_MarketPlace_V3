@@ -52,7 +52,7 @@ $(function() {
             <div class="form-group row">
                 <label for="title" class="col-sm-2 col-form-label text-right">Company name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" name="name" readonly="readonly" required
+                    <input type="text" class="form-control" id="company_name" name="company_name" readonly="readonly" required
                         @if(old('company_name')) value="{{old('company_name')}}" @else value="{{$client->company_name}}"
                         @endif />
                     @error('company_name') <span class="text-danger error">{{ $message }}</span>@enderror

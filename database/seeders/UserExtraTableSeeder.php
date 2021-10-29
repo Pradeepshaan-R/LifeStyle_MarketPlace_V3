@@ -20,6 +20,7 @@ class UserExtraTableSeeder extends Seeder
         DB::table('user_extras')->insert([
             'id' => 1,
             'phone' => '94112345678',
+            'user_id' => 1,
             'tenant_id' => '1',
         ]);
 
@@ -27,6 +28,7 @@ class UserExtraTableSeeder extends Seeder
         DB::table('user_extras')->insert([
             'id' => 2,
             'phone' => '94112345678',
+            'user_id' => 2,
             'tenant_id' => '1',
         ]);
 
@@ -34,6 +36,7 @@ class UserExtraTableSeeder extends Seeder
         DB::table('user_extras')->insert([
             'id' => 3,
             'phone' => '94112345678',
+            'user_id' => 3,
             'tenant_id' => '1',
         ]);
 
@@ -41,6 +44,7 @@ class UserExtraTableSeeder extends Seeder
         DB::table('user_extras')->insert([
             'id' => 4,
             'phone' => '94112345678',
+            'user_id' => 4,
             'tenant_id' => '1',
         ]);
 
@@ -48,6 +52,7 @@ class UserExtraTableSeeder extends Seeder
         DB::table('user_extras')->insert([
             'id' => 5,
             'phone' => '94112345678',
+            'user_id' => 5,
             'tenant_id' => '1',
         ]);
 
@@ -55,6 +60,7 @@ class UserExtraTableSeeder extends Seeder
         DB::table('user_extras')->insert([
             'id' => 6,
             'phone' => '94112345678',
+            'user_id' => 6,
             'tenant_id' => '1',
         ]);
     }

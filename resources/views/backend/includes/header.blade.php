@@ -4,9 +4,7 @@
     </button>
 
     <a class="c-header-brand d-lg-none" href="#">
-        <svg width="118" height="46" alt="CoreUI Logo">
-            <use xlink:href="{{ asset('img/brand/coreui.svg#full') }}"></use>
-        </svg>
+        <h3>{{config('app.name')}}</h3>
     </a>
 
     <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar" data-class="c-sidebar-lg-show" responsive="true">
@@ -38,13 +36,19 @@
                     <div class="c-avatar">
                         <img class="c-avatar-img" src="{{ $logged_in_user->avatar }}" alt="{{ $logged_in_user->email ?? '' }}">
                     </div>
+                    <span class="ml-1">{{ $logged_in_user->name }}</span>
                 </x-slot>
             </x-utils.link>
 
             <div class="dropdown-menu dropdown-menu-right pt-0">
+                
                 <div class="dropdown-header bg-light py-2">
-                    <strong>@lang('Account')</strong>
+                    <strong>{{$logged_in_user->name}}</strong>
                 </div>
+                
+                <a class="dropdown-item" href="{{ route('frontend.user.account') }}">
+                    <i class="fas fa-address-card mr-2 "></i> My Profile
+                </a>
 
                 <x-utils.link
                     class="dropdown-item"

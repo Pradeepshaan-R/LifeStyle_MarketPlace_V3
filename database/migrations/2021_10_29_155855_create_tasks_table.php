@@ -16,9 +16,9 @@ class CreateTasksTable extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->enum('type', ['Civil', 'Meeting', 'Calls', 'Court Hearing'])->default('Civil');
-            $table->string('task_no', 191)->nullable();
-            $table->string('task_amount', 60)->nullable();
-            $table->string('task_note', 200)->nullable();
+            $table->string('no', 30)->nullable();
+            $table->integer('amount')->nullable();
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

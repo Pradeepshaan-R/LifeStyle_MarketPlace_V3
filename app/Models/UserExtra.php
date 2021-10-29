@@ -9,4 +9,14 @@ class UserExtra extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    public function user()
+    {
+        return $this->hasOne('App\Domains\Auth\Models\User');
+    }
+    
+    public function tenant()
+    {
+        return $this->belongsTo('App\Models\Tenant');
+    }
 }

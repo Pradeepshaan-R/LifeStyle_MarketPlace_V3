@@ -29,9 +29,15 @@ class AnnouncementSeeder extends Seeder
              */
             Announcement::create([
                 'area' => null,
-                'type' => 'info',
-                'message' => 'This is a <strong>Global</strong> announcement that will show on both the frontend and backend. <em>See <strong>AnnouncementSeeder</strong> for more usage examples.</em>',
+                'type' => 'danger',
+                'message' => 'This project is still <strong>Under Construction</strong>. Data you enter may be <em><strong>ERASED</strong> In the next update.</em>',
                 'enabled' => true,
+            ]);
+            Announcement::create([
+                'area' => null,
+                'type' => 'danger',
+                'message' => 'Server will be down for scheduled maintenance: <strong>From 16th Sep, 2021, 5pm to 8pm</strong>. Sorry for the inconvenience',
+                'enabled' => false,
             ]);
 
 //            Announcement::create([

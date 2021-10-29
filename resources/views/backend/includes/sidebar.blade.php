@@ -83,13 +83,17 @@
         @endif
 
         <li class="c-sidebar-nav-item">
-            <x-utils.link :href="route('admin.client.index')" class="c-sidebar-nav-link" text="Clients"
-                :active="activeClass(Route::is('admin.client.*'), 'c-active')" />
+            <x-utils.link class="c-sidebar-nav-link" :href="route('admin.client.index')"
+                :active="activeClass(Route::is('admin.client.*'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-people" text="Clients" />
         </li>
+
         <li class="c-sidebar-nav-item">
-            <x-utils.link :href="route('admin.task.index')" class="c-sidebar-nav-link" text="Tasks"
-                :active="activeClass(Route::is('admin.task.*'), 'c-active')" />
-        </li>
+            <x-utils.link class="c-sidebar-nav-link" :href="route('admin.task.index')"
+                :active="activeClass(Route::is('admin.task.*'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-task" text="Tasks" />
+        </li>        
+
     </ul>
 
     <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent"

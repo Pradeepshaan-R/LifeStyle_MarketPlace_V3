@@ -29,6 +29,36 @@ class PermissionRoleSeeder extends Seeder
             'name' => 'Administrator',
         ]);
 
+        Role::create([
+            'id' => 2,
+            'type' => User::TYPE_ADMIN,
+            'name' => config('boilerplate.access.role.lms_admin'),
+        ]);
+
+        Role::create([
+            'id' => 3,
+            'type' => User::TYPE_ADMIN,
+            'name' => config('boilerplate.access.role.tenant_admin'),
+        ]);
+
+        Role::create([
+            'id' => 4,
+            'type' => User::TYPE_ADMIN,
+            'name' => config('boilerplate.access.role.manager'),
+        ]);
+
+        Role::create([
+            'id' => 5,
+            'type' => User::TYPE_ADMIN,
+            'name' => config('boilerplate.access.role.staff'),
+        ]);
+
+        Role::create([
+            'id' => 6,
+            'type' => User::TYPE_ADMIN,
+            'name' => config('boilerplate.access.role.client'),
+        ]);
+
         // Non Grouped Permissions
         //
 

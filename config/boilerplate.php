@@ -12,7 +12,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Configurations related to the boilerplate's access/authorization options
-    */
+     */
     'access' => [
         'captcha' => [
             'configs' => [
@@ -94,6 +94,11 @@ return [
              * It is not recommended to change
              */
             'admin' => 'Administrator',
+            'lms_admin' => 'LMS Admin',
+            'tenant_admin' => 'Tenant Admin',
+            'manager' => 'Manager',
+            'staff' => 'Staff',
+            'client' => 'Client',
         ],
     ],
 
@@ -103,7 +108,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Configurations related to the boilerplate's avatar system
-    */
+     */
     'avatar' => [
 
         /*
@@ -119,7 +124,7 @@ return [
     |
     | Whether or not to show the breadcrumb trail on the frontend
     | Note: Turning this off does not unregister the breadcrumbs in the routes file, it just hides the navbar
-    */
+     */
     'frontend_breadcrumbs' => true,
 
     /*
@@ -128,7 +133,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Configurations related to the boilerplate's locale system
-    */
+     */
     'locale' => [
         /*
          * Whether or not to show the language picker, or just default to the default
@@ -186,6 +191,6 @@ return [
     |
     | When your application is currently running tests
     |
-    */
+     */
     'testing' => env('APP_TESTING', false),
 ];

@@ -24,22 +24,61 @@ class UserSeeder extends Seeder
         User::create([
             'type' => User::TYPE_ADMIN,
             'name' => 'Super Admin',
-            'email' => 'admin@admin.com',
+            'email' => 'azmeer.sc@gmail.com',
             'password' => 'secret',
             'email_verified_at' => now(),
             'active' => true,
         ]);
 
-        if (app()->environment(['local', 'testing'])) {
-            User::create([
-                'type' => User::TYPE_USER,
-                'name' => 'Test User',
-                'email' => 'user@user.com',
-                'password' => 'secret',
-                'email_verified_at' => now(),
-                'active' => true,
-            ]);
-        }
+        //id=2
+        User::create([
+            'type' => User::TYPE_ADMIN,
+            'name' => 'Admin',
+            'email' => 'lms_admin@test.com',
+            'password' => 'secret',
+            'email_verified_at' => now(),
+            'active' => true,
+        ]);
+
+        //id=3
+        User::create([
+            'type' => User::TYPE_ADMIN,
+            'name' => 'Admin',
+            'email' => 'tenant1_admin@test.com',
+            'password' => 'secret',
+            'email_verified_at' => now(),
+            'active' => true,
+        ]);
+
+        //id=4
+        User::create([
+            'type' => User::TYPE_ADMIN,
+            'name' => 'Admin',
+            'email' => 'manager1@test.com',
+            'password' => 'secret',
+            'email_verified_at' => now(),
+            'active' => true,
+        ]);
+
+        //id=5
+        User::create([
+            'type' => User::TYPE_ADMIN,
+            'name' => 'Admin',
+            'email' => 'staff1@test.com',
+            'password' => 'secret',
+            'email_verified_at' => now(),
+            'active' => true,
+        ]);
+
+        //id=6
+        User::create([
+            'type' => User::TYPE_USER,
+            'name' => 'Test User',
+            'email' => 'client1@user.com',
+            'password' => 'secret',
+            'email_verified_at' => now(),
+            'active' => true,
+        ]);
 
         $this->enableForeignKeys();
     }

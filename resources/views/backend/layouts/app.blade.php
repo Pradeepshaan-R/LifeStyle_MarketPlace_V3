@@ -29,13 +29,17 @@
                     <div class="fade-in">
                         @include('includes.partials.messages')
                         @yield('content')
-                    </div><!--fade-in-->
-                </div><!--container-fluid-->
+                    </div>
+                    <!--fade-in-->
+                </div>
+                <!--container-fluid-->
             </main>
-        </div><!--c-body-->
+        </div>
+        <!--c-body-->
 
         @include('backend.includes.footer')
-    </div><!--c-wrapper-->
+    </div>
+    <!--c-wrapper-->
 
     @stack('before-scripts')
     <script src="{{ mix('js/manifest.js') }}"></script>
@@ -43,5 +47,6 @@
     <script src="{{ mix('js/backend.js') }}"></script>
     <livewire:scripts />
     @stack('after-scripts')
+    @yield('scripts')
 </body>
 </html>

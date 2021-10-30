@@ -1,19 +1,21 @@
 @extends('backend.layouts.app')
 @section('content')
 
-@section('scripts')
-@include('backend.includes.azmeer.btn_delete')
-
+@push('after-scripts')
 <script>
     $(document).ready(function(e) {
         $('table').DataTable({
-        'paging': false,
-        'searching': false,
-        "info": false
+            'columnDefs': [
+                { orderable: false, targets: -1 }
+            ],
+            'paging' : false,
+            'searching' : false,
+            "info": false
         });
     });
+
 </script>
-@endsection
+@endpush
 
 <div class="card">
     <div class="card-body">

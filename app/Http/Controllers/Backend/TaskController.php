@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Task;
+use DB;
 use Exception;
 use Illuminate\Http\Request;
-use DB;
 
 class TaskController extends Controller
 {
@@ -15,10 +15,18 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $task_list = Task::get();
-        return view('backend.task.list', ['task_list' => $task_list]);
+        $daterange = $request->daterange;
+
+        if ($daterange) {
+            $date_from = substr($daterange, 0, 10);
+            $date_to = substr($daterange, 13);
+            $date_to = date('Y-m-d', strtotime($date_to . "+1 days"));
+            //$reloads = $reloads->whereBetween('created_at', [$date_from, $date_to]);
+        }
+        return view('backend.task.list', ['task_list' => $task_list, 'daterange' => $daterange]);
     }
 
     /**

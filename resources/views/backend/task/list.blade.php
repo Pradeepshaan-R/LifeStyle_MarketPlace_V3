@@ -1,20 +1,50 @@
 @extends('backend.layouts.app')
 @section('content')
-@section('scripts')
-@include('backend.includes.azmeer.btn_delete')
-<script>
-// // $.noConflict();
-// $(document).ready(function(e) {
 
-// $('table').DataTable({
-//     'paging': false,
-//     'searching': false,
-//     "info": false
-// });
-// });
+@push('after-scripts')
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+<script type="text/javascript">
+    $(function() {
+    
+        var start = moment().subtract(29, 'days');
+        var end = moment();
+    
+        function cb(start, end) {
+            $('#daterange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+    
+        $('#daterange').daterangepicker({
+            locale: { format: 'YYYY-MM-DD' },
+            startDate: start,
+            endDate: end,
+            ranges: {
+               'Today': [moment(), moment()],
+               'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+               'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+               'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+               'This Month': [moment().startOf('month'), moment().endOf('month')],
+               'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+            }
+        }, cb);
+    
+        cb(start, end);
+    
+    });
 </script>
-@endsection
 
+<script>
+    $(document).ready(function(e) {
+        $('table').DataTable({
+            'paging' : false,
+            'searching' : false,
+            "info": false
+        });
+    });
+</script>
+@endpush
 
 <div class="card">
     <div class="card-body">
@@ -38,7 +68,21 @@
             <!--col-->
         </section>
         <!--row-->
+
+        <x-forms.get :action="route('admin.task.index')" autocomplete="off">
+            @csrf
+            <aside class="row">
+                <div class="col-md-3">
+                    <input type="search" name="task_name" class="form-control" placeholder="Search by task" />
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="daterange" id="daterange" />
+                </div>
+                <button type="submit" class="btn btn-warning"><i class="fa fa-search"></i></button>
+            </aside>
+        </x-forms.get>
         <!--form-->
+
         <section class="row mt-4">
             <div class="col">
                 <div class="table-responsive">

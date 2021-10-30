@@ -42,9 +42,9 @@
     <!--c-wrapper-->
 
     @stack('before-scripts')
-    <script src="{{ mix('js/manifest.js') }}"></script>
-    <script src="{{ mix('js/vendor.js') }}"></script>
-    <script src="{{ mix('js/backend.js') }}"></script>
+    <script src="{{ asset(mix('js/manifest.js')) }}"></script>
+    <script src="{{ asset(mix('js/vendor.js')) }}"></script>
+    <script src="{{ asset(mix('js/backend.js')) }}"></script>
     <livewire:scripts />
     @stack('after-scripts')
     @yield('scripts')

@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Backend\AssignmentController;
 use App\Http\Controllers\Backend\ClientController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\DocumentController;
 use App\Http\Controllers\Backend\TaskController;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -14,4 +16,6 @@ Route::get('dashboard', [DashboardController::class, 'index'])
     });
 
 Route::resource('client', ClientController::class);
+Route::resource('assignment', AssignmentController::class);
 Route::resource('task', TaskController::class);
+Route::resource('document', DocumentController::class);

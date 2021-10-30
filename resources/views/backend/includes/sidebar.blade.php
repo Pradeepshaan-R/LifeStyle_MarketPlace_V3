@@ -95,9 +95,9 @@
 
             <ul class="c-sidebar-nav-dropdown-items">
                 <li class="c-sidebar-nav-item">
-                    <x-utils.link class="c-sidebar-nav-link" :href="route('admin.task.index')"
-                        :active="activeClass(Route::is('admin.task.*'), 'c-active')" icon="c-sidebar-nav-icon cil-file"
-                        text="Assignmnets" />
+                    <x-utils.link class="c-sidebar-nav-link" :href="route('admin.assignment.index')"
+                        :active="activeClass(Route::is('admin.assignment.*'), 'c-active')" icon="c-sidebar-nav-icon cil-file"
+                        text="Assignments" />
                 </li>
 
                 <li class="c-sidebar-nav-item">
@@ -113,8 +113,8 @@
                 </li>
 
                 <li class="c-sidebar-nav-item">
-                    <x-utils.link class="c-sidebar-nav-link" :href="route('admin.task.index')"
-                        :active="activeClass(Route::is('admin.task.*'), 'c-active')"
+                    <x-utils.link class="c-sidebar-nav-link" :href="route('admin.document.index')"
+                        :active="activeClass(Route::is('admin.document.*'), 'c-active')"
                         icon="c-sidebar-nav-icon cil-folder" text="Documents" />
                 </li>
 

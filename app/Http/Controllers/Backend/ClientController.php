@@ -15,9 +15,15 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $client_list = Client::get();
+        $name = $request->client_name;
+        $client_list = Client::select('*');
+        if ($name) {
+            $client_list = $client_list->where("company_name", "LIKE", '%' . $name . '%');
+        }
+        $client_list = $client_list->paginate(config('pagination.page_size'));
+
         return view('backend.client.list', ['client_list' => $client_list]);
     }
 

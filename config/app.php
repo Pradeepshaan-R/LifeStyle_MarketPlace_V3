@@ -2,6 +2,10 @@
 
 return [
 
+    //if this is true, then dummy seeders will execute
+    'dummy_data_enable' => env('DUMMY_DATA_ENABLED', false),
+    'pagination' => env('PAGINATION', 10),
+    
     /*
     |--------------------------------------------------------------------------
     | Application Name

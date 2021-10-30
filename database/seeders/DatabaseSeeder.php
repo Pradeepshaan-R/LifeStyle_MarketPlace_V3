@@ -32,6 +32,11 @@ class DatabaseSeeder extends Seeder
         $this->call(TenantTableSeeder::class);
         $this->call(UserExtraTableSeeder::class);
 
+        //generate dummy records for testing
+        if (config('app.dummy_data_enable')) {
+            $this->call(ClientTableSeeder::class);
+        }
+
         Model::reguard();
     }
 }

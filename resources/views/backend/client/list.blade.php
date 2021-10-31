@@ -20,14 +20,14 @@
 <div class="card">
     <div class="card-body">
         <section class="row">
-            <div class="col-sm-5">
-                <h4 class="card-title mb-0">
+            <div class="col-5">
+                <h4 class="card-title mb-4">
                     Client <small class="text-muted">List</small>
                 </h4>
             </div>
             <!--col-->
 
-            <div class="col-sm-7">
+            <div class="col-7">
                 @can('CLIENT_CREATE')
                 <div class="btn-toolbar float-right" role="toolbar" aria-label="Toolbar with button groups">
                     <a href="{{ route('admin.client.create') }}" class="btn btn-success ml-1" data-toggle="tooltip"
@@ -43,7 +43,7 @@
         <x-forms.get :action="route('admin.client.index')" autocomplete="off">
             @csrf
             <aside class="row">
-                <div class="col-md-6">
+                <div class="col-10">
                     <input type="search" name="client_name" class="form-control" placeholder="Search by Client" />
                 </div>
                 <button type="submit" class="btn btn-warning"><i class="fa fa-search"></i></button>

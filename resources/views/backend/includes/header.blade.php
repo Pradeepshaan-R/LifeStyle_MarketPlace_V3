@@ -4,7 +4,7 @@
     </button>
 
     <a class="c-header-brand d-lg-none" href="#">
-        <h3>{{config('app.name')}}</h3>
+        <h3>LMS</h3>
     </a>
 
     <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar" data-class="c-sidebar-lg-show" responsive="true">
@@ -36,7 +36,7 @@
                     <div class="c-avatar">
                         <img class="c-avatar-img" src="{{ $logged_in_user->avatar }}" alt="{{ $logged_in_user->email ?? '' }}">
                     </div>
-                    <span class="ml-1">{{ $logged_in_user->name }}</span>
+                    <span class="ml-1 d-none d-sm-block">{{ $logged_in_user->name }}</span>
                 </x-slot>
             </x-utils.link>
 

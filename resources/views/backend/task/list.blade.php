@@ -49,14 +49,14 @@
 <div class="card">
     <div class="card-body">
         <section class="row">
-            <div class="col-sm-5">
-                <h4 class="card-title mb-0">
+            <div class="col-5">
+                <h4 class="card-title mb-4">
                     Task <small class="text-muted">List</small>
                 </h4>
             </div>
             <!--col-->
 
-            <div class="col-sm-7">
+            <div class="col-7">
                 @can('TASK_CREATE')
                 <div class="btn-toolbar float-right" role="toolbar" aria-label="Toolbar with button groups">
                     <a href="{{ route('admin.task.create') }}" class="btn btn-success ml-1" data-toggle="tooltip"
@@ -72,10 +72,10 @@
         <x-forms.get :action="route('admin.task.index')" autocomplete="off">
             @csrf
             <aside class="row">
-                <div class="col-md-3">
+                <div class="col-5">
                     <input type="search" name="task_name" class="form-control" placeholder="Search by task" />
                 </div>
-                <div class="col-md-3">
+                <div class="col-5">
                     <input type="text" class="form-control" name="daterange" id="daterange" />
                 </div>
                 <button type="submit" class="btn btn-warning"><i class="fa fa-search"></i></button>

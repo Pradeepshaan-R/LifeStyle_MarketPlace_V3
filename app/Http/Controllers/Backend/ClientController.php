@@ -4,12 +4,17 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client;
+use App\Traits\Common;
+use DB;
 use Exception;
 use Illuminate\Http\Request;
-use DB;
 
 class ClientController extends Controller
 {
+    use Common;
+    protected $code = 200;
+    protected $message;
+
     /**
      * Display a listing of the resource.
      *
@@ -45,7 +50,6 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $message = "";
         DB::beginTransaction();
         try {
             $client = new Client();
@@ -53,13 +57,13 @@ class ClientController extends Controller
             $client->company_phone = $request->company_phone;
             $client->company_email = $request->company_email;
             $client->save();
-            $message = 'Adding Successful';
+            $this->message = 'Adding Successful';
             DB::commit();
         } catch (Exception $ex) {
             DB::rollBack();
-            $message = 'Adding Unsuccessful';
+            $this->message = 'Adding Unsuccessful';
         }
-        return redirect('admin/client')->withFlashInfo($message);
+        return redirect('admin/client')->withFlashInfo($this->message);
     }
 
     /**
@@ -82,20 +86,19 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        $message = "";
         DB::beginTransaction();
         try {
             $client->company_name = $request->company_name;
             $client->company_phone = $request->company_phone;
             $client->company_email = $request->company_email;
             $client->save();
-            $message = 'Update Successful';
+            $this->message = 'Update Successful';
             DB::commit();
         } catch (Exception $ex) {
             DB::rollBack();
-            $message = 'Update Unsuccessful';
+            $this->message = 'Update Unsuccessful';
         }
-        return redirect('admin/client')->withFlashInfo($message);
+        return redirect('admin/client')->withFlashInfo($this->message);
     }
 
     /**

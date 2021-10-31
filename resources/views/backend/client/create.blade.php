@@ -28,7 +28,8 @@
         <!--card-header-->
 
         <section class="card-body">
-            <p>Dummy text here</p>
+            <p>A Client can be an individual or a company. Please include a primary contact for a company.</p>
+            
             <div class="form-group row">
                 <label for="name" class="col-sm-2 col-form-label text-right">Company name</label>
 
@@ -50,6 +51,25 @@
                     <input type="text" class="form-control" id="company_email" name="company_email" placeholder="Email"
                         required value="{{old('company_email')}}" />
                     @error('company_email') <span class="text-danger error">{{ $message }}</span>@enderror
+                </div>
+            </div>
+
+            <hr/>
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label text-right">Name</label>
+                <div class="col-sm-2">
+                    <select class="form-control" name='title' id="title" required>
+                        <option value="">--Title--</option>
+                        @foreach( App\Models\UserExtra::getEnum('Titles') as $value)
+                            <option value="{{ $value }}" {{ old('title') == $value?'selected':''}}>{{ $value }}</option>
+                        @endforeach
+                    </select>
+                    @error('title') <span class="text-danger error">{{ $message }}</span>@enderror
+                </div>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name"
+                        required value="{{old('name')}}" />
+                    @error('name') <span class="text-danger error">{{ $message }}</span>@enderror
                 </div>
             </div>
         </section>

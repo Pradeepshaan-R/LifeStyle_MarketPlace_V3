@@ -26,7 +26,8 @@ class CreateClientsTable extends Migration
             $table->string('company_phone', 15)->nullable();
             $table->enum('company_legal_type', ['Sole', 'Pvt', 'Ltd', 'Plc', 'Gov'])->default('Pvt');
             $table->foreignId('country_id')->default(211);
-            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('tenant_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); //primary contact
             $table->timestamps();
         });
     }

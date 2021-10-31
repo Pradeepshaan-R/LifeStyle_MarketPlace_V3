@@ -16,7 +16,7 @@ class ClientTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        foreach (range(1, 5) as $index) {
+        foreach (range(1, 25) as $index) {
             DB::table('clients')->insert([
                 'type' => $faker->randomElement(['Individual', 'Company']),
                 'status' => "Active",

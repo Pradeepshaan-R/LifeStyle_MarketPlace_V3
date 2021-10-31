@@ -27,6 +27,7 @@ class ClientTableSeeder extends Seeder
                 'company_city' => $faker->city,
                 'company_legal_type' => $faker->randomElement(['Sole', 'Pvt', 'Ltd', 'Plc', 'Gov']),
                 'country_id' => 211,
+                'tenant_id' => 1,
                 'user_id' => 6,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),

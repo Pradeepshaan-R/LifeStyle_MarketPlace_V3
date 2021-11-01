@@ -28,7 +28,8 @@
         <main>
             @yield('content')
         </main>
-    </div><!--app-->
+    </div>
+    <!--app-->
 
     @stack('before-scripts')
     <script src="{{ asset(mix('js/manifest.js')) }}"></script>

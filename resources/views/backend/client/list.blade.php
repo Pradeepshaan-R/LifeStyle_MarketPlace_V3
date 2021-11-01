@@ -3,17 +3,17 @@
 
 @push('after-scripts')
 <script>
-    $(document).ready(function(e) {
-        $('table').DataTable({
-            'columnDefs': [
-                { orderable: false, targets: -1 }
-            ],
-            'paging' : false,
-            'searching' : false,
-            "info": false
-        });
+$(document).ready(function(e) {
+    $('table').DataTable({
+        'columnDefs': [{
+            orderable: false,
+            targets: -1
+        }],
+        'paging': false,
+        'searching': false,
+        "info": false
     });
-
+});
 </script>
 @endpush
 

@@ -69,6 +69,7 @@ class ClientController extends Controller
             $client->company_phone = $request->company_phone;
             $client->company_email = $request->company_email;
             $client->tenant_id = auth()->user()->user_extra->tenant->id; //currently logged in user's tenant_id
+            $client->user_id = $user->id;
             $client->save();
 
             //create user_extra
@@ -76,6 +77,8 @@ class ClientController extends Controller
             $user_extra->type = 'admin';
             $user_extra->name = $request->title;
             $user_extra->email = $request->phone;
+            $user_extra->tenant_id = auth()->user()->user_extra->tenant->id;
+            $user_extra->user_id = $user->id;
             $user_extra->save();
 
             $this->message = 'Adding Successful';

@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\ClientController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\DocumentController;
 use App\Http\Controllers\Backend\TaskController;
+use App\Http\Controllers\Backend\TenantController;
 use Tabuna\Breadcrumbs\Trail;
 
 // All route names are prefixed with 'admin.'.
@@ -19,3 +20,4 @@ Route::resource('client', ClientController::class);
 Route::resource('assignment', AssignmentController::class);
 Route::resource('task', TaskController::class);
 Route::resource('document', DocumentController::class);
+Route::resource('tenant', TenantController::class);

@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use App\Traits\Enums;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\Enums;
 
 class Client extends Model
 {
@@ -26,13 +26,15 @@ class Client extends Model
         'user_id',
     ];
 
+    protected $enumTypes = [
+        'Sol', 'Pvt', 'Ltd', 'Plc', 'Gov',
+    ];
+
     public static $rules = [
         'type' => 'required',
         'name' => 'required',
         'email' => 'required',
     ];
-
-    
 
     public function country()
     {

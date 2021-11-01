@@ -30,7 +30,6 @@ class Tenant extends Model
         'tenant_name' => 'required',
         'address' => 'required',
         'city' => 'required',
-        'plan_id' => 'required',
     ];
 
     public function user_extra()

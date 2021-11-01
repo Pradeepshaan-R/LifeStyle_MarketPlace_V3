@@ -96,8 +96,8 @@
             <ul class="c-sidebar-nav-dropdown-items">
                 <li class="c-sidebar-nav-item">
                     <x-utils.link class="c-sidebar-nav-link" :href="route('admin.assignment.index')"
-                        :active="activeClass(Route::is('admin.assignment.*'), 'c-active')" icon="c-sidebar-nav-icon cil-file"
-                        text="Assignments" />
+                        :active="activeClass(Route::is('admin.assignment.*'), 'c-active')"
+                        icon="c-sidebar-nav-icon cil-file" text="Assignments" />
                 </li>
 
                 <li class="c-sidebar-nav-item">
@@ -144,8 +144,8 @@
 
         @role('Administrator|LMS Admin')
         <li class="c-sidebar-nav-item">
-            <x-utils.link class="c-sidebar-nav-link" :href="route('admin.task.index')"
-                :active="activeClass(Route::is('admin.task.*'), 'c-active')" icon="c-sidebar-nav-icon cil-house"
+            <x-utils.link class="c-sidebar-nav-link" :href="route('admin.tenant.index')"
+                :active="activeClass(Route::is('admin.tenant.*'), 'c-active')" icon="c-sidebar-nav-icon cil-house"
                 text="Tenants" />
         </li>
         @endrole

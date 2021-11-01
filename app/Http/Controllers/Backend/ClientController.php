@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client;
+use App\Models\User;
+use App\Models\UserExtra;
 use App\Traits\Common;
 use DB;
 use Exception;

@@ -74,18 +74,21 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="contact" class="col-sm-2 col-form-label text-right">Contact</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" pattern="[1-9]\d+" minlength="11" maxlength="15"
-                            id="phone" name="company_phone" placeholder="Company Phone" required
-                            value="{{old('company_phone')}}" />
-                        @error('company_phone') <span class="text-danger error">{{ $message }}</span>@enderror
-                    </div>
-                    <div class="col-sm-5">
+                    <label for="contact" class="col-sm-2 col-form-label text-right">Email</label>
+                    <div class="col-sm-4">
                         <input type="text" class="form-control" id="company_email" name="company_email"
                             placeholder="Company Email" required value="{{old('company_email')}}" />
                         @error('company_email') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
+
+                    <label for="contact" class="col-sm-2 col-form-label text-right">Phone</label>
+                    <div class="col-sm-4">
+                        <input type="tel" class="form-control" pattern="[1-9]\d+" minlength="11" maxlength="15"
+                            id="company_phone" name="company_phone" placeholder="Company Phone" required
+                            value="{{old('company_phone')}}" />
+                        @error('company_phone') <span class="text-danger error">{{ $message }}</span>@enderror
+                    </div>
+                    
                 </div>
             </section>
 
@@ -119,7 +122,7 @@
 
                     <label for="name" class="col-sm-2 col-form-label text-right">Phone</label>
                     <div class="col-sm-4">
-                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone" required
+                        <input type="tel" class="form-control" id="phone" name="phone" pattern="[1-9]\d+" minlength="11" maxlength="15" placeholder="Phone" required
                             value="{{old('phone')}}" />
                         <small class="form-text text-muted">
                             Minimum 10 digits. eg: 94112334455

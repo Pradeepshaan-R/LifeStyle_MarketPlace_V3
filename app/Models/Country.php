@@ -9,4 +9,9 @@ class Country extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    public static function get_all()
+    {
+        return Country::get();
+    }
 }

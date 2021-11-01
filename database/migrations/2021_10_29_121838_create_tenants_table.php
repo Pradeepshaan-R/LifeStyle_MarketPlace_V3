@@ -22,10 +22,11 @@ class CreateTenantsTable extends Migration
             $table->string('phone', 15)->nullable();
             $table->string('url', 100)->nullable();
             $table->Date('started_date')->nullable();
+
             $table->Date('expiry_date')->nullable();
             $table->integer('no_of_users')->default(5); //no of users allowed for this tenant
             $table->enum('status', ['Pending payment', 'Active', 'Disabled'])->default('Active');
-            $table->foreignId('plan_id')->unsigned()->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('plan_id')->default(1)->constrained()->onDelete('set null');
             $table->foreignId('country_id')->default(211);
             $table->string('settings')->nullable();
             $table->string('features')->nullable();

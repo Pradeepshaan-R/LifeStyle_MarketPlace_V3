@@ -28,6 +28,8 @@ class Client extends Model
 
     public static $rules = [
         'type' => 'required',
+        'name' => 'required',
+        'email' => 'required',
     ];
 
     

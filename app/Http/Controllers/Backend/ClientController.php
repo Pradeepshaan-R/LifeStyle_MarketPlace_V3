@@ -53,6 +53,14 @@ class ClientController extends Controller
         $validatedData = $this->validate($request, Client::$rules);
         DB::beginTransaction();
         try {
+            //create the primary contact
+            $user = new User();
+            $user->type = 'admin';
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->save();
+
+            //create company record
             $client = new Client();
             $client->type = $request->client_type;
             $client->company_name = $request->company_name;
@@ -60,6 +68,14 @@ class ClientController extends Controller
             $client->company_email = $request->company_email;
             $client->tenant_id = auth()->user()->user_extra->tenant->id; //currently logged in user's tenant_id
             $client->save();
+
+            //create user_extra
+            $user_extra = new UserExtra();
+            $user_extra->type = 'admin';
+            $user_extra->name = $request->title;
+            $user_extra->email = $request->phone;
+            $user_extra->save();
+
             $this->message = 'Adding Successful';
             DB::commit();
         } catch (Exception $ex) {

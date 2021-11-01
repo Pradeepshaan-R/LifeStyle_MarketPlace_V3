@@ -25,14 +25,14 @@
     <article class="card">
         <section class="card-header">
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-10">
                     <h4 class="card-title">
                         Client <small class="text-muted mode_label">Create</small>
                     </h4>
                 </div>
                 <!--col-->
 
-                <div class="col-sm-7">
+                <div class="col-2">
                     <div class="btn-toolbar float-right" role="toolbar" aria-label="Toolbar with button groups">
                         <a href="{{ route('admin.client.index') }}" title="Close" class="btn btn-light btn-sm"><i
                                 class="fas fa-times"></i></a>
@@ -50,12 +50,12 @@
 
             <aside class="alert alert-dark">
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" name="client_type" id="client_type1" value="Individual"
+                    <input type="radio" name="type" id="client_type1" value="Individual"
                         class="custom-control-input" onclick="select_type(value)">
                     <label class="custom-control-label" for="client_type1">Individual</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" name="client_type" id="client_type2" value="Company"
+                    <input type="radio" name="type" id="client_type2" value="Company"
                         class="custom-control-input" onclick="select_type(value)">
                     <label class="custom-control-label" for="client_type2">Company</label>
                 </div>

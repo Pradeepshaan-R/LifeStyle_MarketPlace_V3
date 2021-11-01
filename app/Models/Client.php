@@ -28,8 +28,6 @@ class Client extends Model
 
     public static $rules = [
         'type' => 'required',
-        'tenant_id' => 'required',
-        'user_id' => 'required',
     ];
 
     

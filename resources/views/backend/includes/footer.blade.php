@@ -1,6 +1,6 @@
 <footer class="c-footer">
     <div>
-        Copyright &copy; 2020
+        2020 &copy; 
             <x-utils.link href="http://www.aventagelabs.com/" target="_blank" text="Aventage Labs" />
     </div>
 

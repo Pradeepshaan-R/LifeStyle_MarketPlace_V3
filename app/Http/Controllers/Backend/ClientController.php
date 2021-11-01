@@ -50,12 +50,15 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $this->validate($request, Client::$rules);
         DB::beginTransaction();
         try {
             $client = new Client();
+            $client->type = $request->client_type;
             $client->company_name = $request->company_name;
             $client->company_phone = $request->company_phone;
             $client->company_email = $request->company_email;
+            $client->tenant_id = auth()->user()->user_extra->tenant->id; //currently logged in user's tenant_id
             $client->save();
             $this->message = 'Adding Successful';
             DB::commit();

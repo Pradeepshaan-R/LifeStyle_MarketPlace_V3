@@ -7,14 +7,14 @@
     <article class="card">
         <section class="card-header">
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-10">
                     <h4 class="card-title">
                         Task <small class="text-muted mode_label">Create</small>
                     </h4>
                 </div>
                 <!--col-->
 
-                <div class="col-sm-7">
+                <div class="col-2">
                     <div class="btn-toolbar float-right" role="toolbar" aria-label="Toolbar with button groups">
                         <a href="{{ route('admin.task.index') }}" title="Close" class="btn btn-light btn-sm"><i
                                 class="fas fa-times"></i></a>

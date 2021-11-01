@@ -20,6 +20,8 @@ class CreateUserExtrasTable extends Migration
             $table->string('phone', 15)->nullable();
             $table->string('nic', 15)->nullable();
             $table->string('designation', 20)->nullable();
+            $table->string('address', 120)->nullable();
+            $table->string('city', 30)->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('tenant_id')->default(1)->constrained()->onDelete('cascade');
         });

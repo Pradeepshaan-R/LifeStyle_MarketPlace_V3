@@ -1,4 +1,5 @@
 @extends('backend.layouts.app')
+@section('title', 'Task list')
 @section('content')
 
 @push('after-scripts')

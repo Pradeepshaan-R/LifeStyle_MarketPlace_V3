@@ -1,9 +1,10 @@
 @extends('backend.layouts.app')
+@section('title', 'Client list')
 @section('content')
 
 @push('after-scripts')
 <script>
-$(document).ready(function(e) {
+    $(document).ready(function(e) {
     $('table').DataTable({
         'columnDefs': [{
             orderable: false,
@@ -43,8 +44,15 @@ $(document).ready(function(e) {
         <x-forms.get :action="route('admin.client.index')" autocomplete="off">
             @csrf
             <aside class="row">
-                <div class="col-10">
-                    <input type="search" name="client_name" class="form-control" placeholder="Search by Client" />
+                <div class="col-5">
+                    <input type="search" name="client_name" class="form-control" value="{{$name}}" placeholder="Search by Client" />
+                </div>
+                <div class="col-5">
+                    <select class="form-control" name='type' id="type">
+                        <option value="">--Type--</option>
+                        <option value="Individual" {{$type=="Individual" ?'selected':''}}>Individual</option>
+                        <option value="Company" {{$type=="Company" ?'selected':''}}>Company</option>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-warning"><i class="fa fa-search"></i></button>
             </aside>

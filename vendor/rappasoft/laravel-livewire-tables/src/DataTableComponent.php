@@ -9,6 +9,8 @@ use Rappasoft\LaravelLivewireTables\Traits\WithBulkActions;
 use Rappasoft\LaravelLivewireTables\Traits\WithColumnSelect;
 use Rappasoft\LaravelLivewireTables\Traits\WithCustomPagination;
 use Rappasoft\LaravelLivewireTables\Traits\WithFilters;
+use Rappasoft\LaravelLivewireTables\Traits\WithFooter;
+use Rappasoft\LaravelLivewireTables\Traits\WithHeader;
 use Rappasoft\LaravelLivewireTables\Traits\WithPerPagePagination;
 use Rappasoft\LaravelLivewireTables\Traits\WithReordering;
 use Rappasoft\LaravelLivewireTables\Traits\WithSearch;
@@ -25,6 +27,8 @@ abstract class DataTableComponent extends Component
     use WithColumnSelect;
     use WithCustomPagination;
     use WithFilters;
+    use WithFooter;
+    use WithHeader;
     use WithPerPagePagination;
     use WithReordering;
     use WithSearch;
@@ -69,12 +73,11 @@ abstract class DataTableComponent extends Component
     public string $emptyMessage = 'No items found. Try to broaden your search.';
 
     /**
-     * Name of the page parameter for pagination
-     * Good to change the default if you have more than one datatable on a page.
+     * Whether or not to display a responsive table
      *
-     * @var string
+     * @var bool
      */
-    protected string $pageName = 'page';
+    public bool $responsive = true;
 
     /**
      * Unique name to use for this table if you want the 'per page' options to be remembered on a per table basis.
@@ -85,6 +88,14 @@ abstract class DataTableComponent extends Component
      * @var string
      */
     protected string $tableName = 'table';
+
+    /**
+     * Name of the page parameter for pagination
+     * Good to change the default if you have more than one datatable on a page.
+     *
+     * @var string
+     */
+    protected string $pageName = 'page';
 
     /**
      * @var \null[][]

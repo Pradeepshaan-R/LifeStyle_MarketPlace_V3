@@ -1,4 +1,5 @@
 @extends('backend.layouts.app')
+@section('title', 'Tenant create')
 @section('content')
 
 @push('after-scripts')
@@ -219,10 +220,15 @@ $(document).ready(function(e) {});
         <!--card-body-->
 
         <section class="card-footer">
-            <div class="text-right">
-                @can('TENANT_CREATE')
+            <div class=" row">
+                <div class="col-sm-6">
+                    <small>Red boxes are mandatory. Green boxes are optional.</small>
+                </div>
+                <div class="col-sm-6 text-right">
+                    @can('TENANT_CREATE')
                 <button type="submit" class="btn btn-success">Save</button>
                 @endcan
+                </div>
             </div>
         </section>
         <!--card-footer-->

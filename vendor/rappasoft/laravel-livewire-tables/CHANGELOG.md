@@ -4,6 +4,93 @@ All notable changes to `laravel-livewire-tables` will be documented in this file
 
 ## [Unreleased]
 
+## [1.20.0] - 2021-10-25
+
+### Added
+
+- Singular row translation - https://github.com/rappasoft/laravel-livewire-tables/pull/526
+
+### Changed
+
+- Fixed bulk actions dropdown on Bootstrap - https://github.com/rappasoft/laravel-livewire-tables/pull/519
+- Fixed bulk row/select with pagination off - https://github.com/rappasoft/laravel-livewire-tables/issues/510
+- Conditionally show cursor-pointer class instead of inline style - https://github.com/rappasoft/laravel-livewire-tables/pull/529
+
+## [1.19.3] - 2021-10-25
+
+### Changed
+
+- Fix bulk actions - https://github.com/rappasoft/laravel-livewire-tables/pull/517
+
+## [1.19.2] - 2021-10-15
+
+### Added
+
+- German translation - https://github.com/rappasoft/laravel-livewire-tables/pull/502
+
+### Changed
+
+- Extracts just the field name from primaryKey - https://github.com/rappasoft/laravel-livewire-tables/pull/506
+- Update BS4 pagination - https://github.com/rappasoft/laravel-livewire-tables/pull/507
+- Update minimum Livewire version to 2.6
+
+## [1.19.1] - 2021-10-14
+
+### Changed
+
+- Fixed table target default
+
+## [1.19.0] - 2021-10-14
+
+### Added
+
+- Thai translation - https://github.com/rappasoft/laravel-livewire-tables/pull/491
+- Italian translation - https://github.com/rappasoft/laravel-livewire-tables/pull/493
+- Added getTableRowUrlTarget to set row click target based on the row
+- Add custom class to table - https://github.com/rappasoft/laravel-livewire-tables/pull/495
+
+### Changed
+
+- Fix removing a multiselect filter - https://github.com/rappasoft/laravel-livewire-tables/pull/494
+
+## [1.18.0] - 2021-10-13
+
+### Added
+
+- Secondary header (see documentation section `Secondary Header Functionality` on how to implement column search)
+
+### Changed
+
+- Add missing properties to reordering session
+
+## [1.17.0] - 2021-10-12
+
+### Added
+
+- Multiselect filter - https://github.com/rappasoft/laravel-livewire-tables/pull/469
+
+### Changed
+
+- Fixed default version of livewire - https://github.com/rappasoft/laravel-livewire-tables/issues/486
+- Fix bulk select with search and add typed property to selected - https://github.com/rappasoft/laravel-livewire-tables/pull/439
+
+## [1.16.0] - 2021-09-26
+
+### Added
+
+- Ability to use the header as the footer
+- Ability to define a custom footer cell per column
+- Ability to set the footer row classes/id/attributes
+- Ability to set the footer cell classes/id/attributes
+- Added isHtml method on the column and replace use of property in views for internal use.
+- [Ability to define bulk actions with a method](https://github.com/rappasoft/laravel-livewire-tables/pull/467)
+- [Allow to disable responsive status of the table](https://github.com/rappasoft/laravel-livewire-tables/pull/458)
+- [Ability to link each cell](https://github.com/rappasoft/laravel-livewire-tables/pull/461)
+
+### Changed
+
+- [Reduce horizontal spacing in Tailwind responsive view](https://github.com/rappasoft/laravel-livewire-tables/pull/464)
+
 ## [1.15.0] - 2021-09-19
 
 ### Added
@@ -467,7 +554,15 @@ All notable changes to `laravel-livewire-tables` will be documented in this file
 
 - Initial release
 
-[Unreleased]: https://github.com/rappasoft/laravel-livewire-tables/compare/v1.15.0...development
+[Unreleased]: https://github.com/rappasoft/laravel-livewire-tables/compare/v1.20.0...development
+[1.20.0]: https://github.com/rappasoft/laravel-livewire-tables/compare/v1.19.3...v1.20.0
+[1.19.3]: https://github.com/rappasoft/laravel-livewire-tables/compare/v1.19.2...v1.19.3
+[1.19.2]: https://github.com/rappasoft/laravel-livewire-tables/compare/v1.19.1...v1.19.2
+[1.19.1]: https://github.com/rappasoft/laravel-livewire-tables/compare/v1.18.0...v1.19.1
+[1.19.0]: https://github.com/rappasoft/laravel-livewire-tables/compare/v1.18.0...v1.19.0
+[1.18.0]: https://github.com/rappasoft/laravel-livewire-tables/compare/v1.17.0...v1.18.0
+[1.17.0]: https://github.com/rappasoft/laravel-livewire-tables/compare/v1.16.0...v1.17.0
+[1.16.0]: https://github.com/rappasoft/laravel-livewire-tables/compare/v1.15.0...v1.16.0
 [1.15.0]: https://github.com/rappasoft/laravel-livewire-tables/compare/v1.14.0...v1.15.0
 [1.14.0]: https://github.com/rappasoft/laravel-livewire-tables/compare/v1.13.0...v1.14.0
 [1.13.0]: https://github.com/rappasoft/laravel-livewire-tables/compare/v1.12.0...v1.13.0

@@ -16,13 +16,12 @@ class CreateTenantsTable extends Migration
         Schema::create('tenants', function (Blueprint $table) {
             $table->id();
             $table->string('tenant_name', 100);
-            $table->string('address', 100)->nullable();
+            $table->string('address', 120)->nullable();
             $table->string('city', 30)->nullable();
             $table->string('email', 100)->unique()->nullable();
             $table->string('phone', 15)->nullable();
             $table->string('url', 100)->nullable();
             $table->Date('started_date')->nullable();
-
             $table->Date('expiry_date')->nullable();
             $table->integer('no_of_users')->default(5); //no of users allowed for this tenant
             $table->enum('status', ['Pending payment', 'Active', 'Disabled'])->default('Active');

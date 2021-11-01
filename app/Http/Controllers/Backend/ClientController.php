@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Domains\Auth\Models\User;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
-use App\Models\User;
 use App\Models\UserExtra;
 use App\Traits\Common;
 use DB;
@@ -25,13 +25,17 @@ class ClientController extends Controller
     public function index(Request $request)
     {
         $name = $request->client_name;
+        $type = $request->type;
         $client_list = Client::select('*');
         if ($name) {
             $client_list = $client_list->where("company_name", "LIKE", '%' . $name . '%');
         }
+        if ($type) {
+            $client_list = $client_list->where("type", $type);
+        }
         $client_list = $client_list->paginate(config('pagination.page_size'));
 
-        return view('backend.client.list', ['client_list' => $client_list]);
+        return view('backend.client.list', ['client_list' => $client_list, 'name' => $name, 'type' => $type]);
     }
 
     /**
@@ -61,16 +65,19 @@ class ClientController extends Controller
             $user->name = $request->name;
             $user->email = $request->email;
             $user->save();
+            User::find($user->id)->assignRole('Client');
 
             //create company record
-            $client = new Client();
-            $client->type = $request->client_type;
-            $client->company_name = $request->company_name;
-            $client->company_phone = $request->company_phone;
-            $client->company_email = $request->company_email;
-            $client->tenant_id = auth()->user()->user_extra->tenant->id; //currently logged in user's tenant_id
-            $client->user_id = $user->id;
-            $client->save();
+            if ($request->client_type == "Company") {
+                $client = new Client();
+                $client->type = $request->client_type;
+                $client->company_name = $request->company_name;
+                $client->company_phone = $request->company_phone;
+                $client->company_email = $request->company_email;
+                $client->tenant_id = auth()->user()->user_extra->tenant->id; //currently logged in user's tenant_id
+                $client->user_id = $user->id;
+                $client->save();
+            }
 
             //create user_extra
             $user_extra = new UserExtra();
@@ -81,7 +88,7 @@ class ClientController extends Controller
             $user_extra->user_id = $user->id;
             $user_extra->save();
 
-            $this->message = 'Adding Successful';
+            $this->message = 'New Client created. Primary contact adding successful.';
             DB::commit();
         } catch (Exception $ex) {
             DB::rollBack();

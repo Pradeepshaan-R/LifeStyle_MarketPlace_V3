@@ -17,9 +17,10 @@
         }
     ],
     "require": {
+        "php": "^7.4|^8.0",
+        "ext-json": "*",
         "laravel/framework": "^8.16",
-        "opis/closure": "^3.5",
-        "ext-json": "*"
+        "laravel/serializable-closure": "^1.0"
     },
     "require-dev": {
         "orchestra/testbench": "~6.0",
@@ -54,4 +55,3 @@
         "sort-packages": true
     }
 }
-

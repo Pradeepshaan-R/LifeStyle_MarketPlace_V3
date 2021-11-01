@@ -1,9 +1,10 @@
 @extends('backend.layouts.app')
+@section('title', 'Client create')
 @section('content')
 
 @push('after-scripts')
 <script>
-$(document).ready(function(e) {
+    $(document).ready(function(e) {
     $('#client_info_company').hide();
     $('#client_info_person').hide();
 });
@@ -70,7 +71,7 @@ function select_type(client_type) {
                         Name</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" id="company_name" name="company_name"
-                            placeholder="Company Name" required value="{{old('company_name')}}" />
+                            placeholder="Company Name" value="{{old('company_name')}}" />
                         @error('company_name') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                 </div>
@@ -79,7 +80,7 @@ function select_type(client_type) {
                     <label for="company_legal_type" class="col-sm-2 col-form-label text-lg-right text-sm-start">Company
                         Type</label>
                     <div class="col-sm-3">
-                        <select class="form-control" name='company_legal_type' id="company_legal_type" required>
+                        <select class="form-control" name='company_legal_type' id="company_legal_type" >
                             <option value="">--Type--</option>
                             @foreach( App\Models\Client::getEnum('Types') as $value)
                             <option value="{{ $value }}" {{ old('title')==$value?'selected':''}}>{{ $value }}</option>
@@ -91,7 +92,7 @@ function select_type(client_type) {
                         Number</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" id="company_pv_no" name="company_pv_no"
-                            placeholder="PV Number" required value="{{old('company_pv_no')}}" />
+                            placeholder="PV Number" value="{{old('company_pv_no')}}" />
                         @error('company_pv_no') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                 </div>
@@ -101,14 +102,14 @@ function select_type(client_type) {
                         Email</label>
                     <div class="col-sm-3">
                         <input type="text" class="form-control" id="company_email" name="company_email"
-                            placeholder="Company Email" required value="{{old('company_email')}}" />
+                            placeholder="Company Email" value="{{old('company_email')}}" />
                         @error('company_email') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                     <label for="company_phone" class="col-sm-2 col-form-label text-lg-right text-sm-start">Company
                         Phone</label>
                     <div class="col-sm-4">
                         <input type="tel" class="form-control" pattern="[1-9]\d+" minlength="11" maxlength="15"
-                            id="company_phone" name="company_phone" placeholder="Company Phone" required
+                            id="company_phone" name="company_phone" placeholder="Company Phone" 
                             value="{{old('company_phone')}}" />
                         <small class="form-text text-muted">
                             Minimum 10 digits. eg: 94112334455
@@ -120,7 +121,7 @@ function select_type(client_type) {
                 <div class="form-group row">
                     <label for="address" class="col-sm-2 col-form-label text-lg-right text-sm-start">Company
                         Address</label>
-                    <textarea class="form-control col-sm-9" name="address" id="address" rows="5" required
+                    <textarea class="form-control col-sm-9" name="address" id="address" rows="5" 
                         value="{{old('address')}}"></textarea>
                     @error('address') <span class="text-danger error">{{ $message }}</span>@enderror
                 </div>
@@ -128,13 +129,13 @@ function select_type(client_type) {
                 <div class="form-group row">
                     <label for="city" class="col-sm-2 col-form-label text-lg-right text-sm-start">City</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="city" name="city" placeholder="City" required
+                        <input type="text" class="form-control" id="city" name="city" placeholder="City" 
                             value="{{old('city')}}" />
                         @error('city') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                     <label for="country_id" class="col-sm-1 col-form-label text-lg-right text-sm-start">Country</label>
                     <div class="col-sm-4">
-                        <select class="form-control" name='country_id' id="country_id" required>
+                        <select class="form-control" name='country_id' id="country_id" >
                             <option value="">--Country--</option>
                             @foreach( App\Models\Country::get_all() as $one)
                             <option value="{{ $one->id }}" {{ old('country_id')==$one->id?'selected':''}}>
@@ -150,7 +151,7 @@ function select_type(client_type) {
                         Website</label>
                     <div class="col-sm-9">
                         <input type="url" class="form-control" id="company_website" name="company_website"
-                            placeholder="Company Website" required value="{{old('company_website')}}" />
+                            placeholder="Company Website" value="{{old('company_website')}}" />
                         @error('company_website') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                 </div>
@@ -203,12 +204,12 @@ function select_type(client_type) {
                         class="col-sm-2 col-form-label text-lg-right text-sm-start">Nationality</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control" id="nationality" name="nationality"
-                            placeholder="Nationality" required value="{{old('nationality')}}" />
+                            placeholder="Nationality" value="{{old('nationality')}}" />
                         @error('nationality') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                     <label for="nic" class="col-sm-1 col-form-label text-lg-right text-sm-start">NIC</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" id="nic" name="nic" placeholder="NIC" required
+                        <input type="text" class="form-control" id="nic" name="nic" placeholder="NIC"
                             value="{{old('nic')}}" />
                         @error('nic') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
@@ -216,10 +217,10 @@ function select_type(client_type) {
 
                 <div class="form-group row">
                     <label for="designation"
-                        class="col-sm-2 col-form-label text-lg-right text-sm-start">Designantion</label>
+                        class="col-sm-2 col-form-label text-lg-right text-sm-start">Designation</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" id="designation" name="designation"
-                            placeholder="Designantion" required value="{{old('designation')}}" />
+                            placeholder="Designantion" value="{{old('designation')}}" />
                         @error('designation') <span class="text-danger error">{{ $message }}</span>@enderror
                     </div>
                 </div>
@@ -232,7 +233,7 @@ function select_type(client_type) {
         <section class="card-footer">
             <div class=" row">
                 <div class="col-sm-6">
-
+                    <small>Red boxes are mandatory. Green boxes are optional.</small>
                 </div>
                 <div class="col-sm-6 text-right">
                     @can('CLIENT_CREATE')

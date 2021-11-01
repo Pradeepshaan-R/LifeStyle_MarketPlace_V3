@@ -1,6 +1,6 @@
 @extends('backend.layouts.app')
+@section('title', 'Task create')
 @section('content')
-
 
 <x-forms.post :action="route('admin.task.store')" class="was-validated" id="myForm">
 
@@ -64,7 +64,7 @@
         <section class="card-footer">
             <div class=" row">
                 <div class="col-sm-6">
-
+                    <small>Red boxes are mandatory. Green boxes are optional.</small>
                 </div>
                 <div class="col-sm-6 text-right">
                     @can('TASK_CREATE')

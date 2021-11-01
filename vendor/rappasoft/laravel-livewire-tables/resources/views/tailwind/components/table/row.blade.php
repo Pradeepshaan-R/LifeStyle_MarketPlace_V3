@@ -1,4 +1,4 @@
-@props(['url' => null, 'reordering' => false, 'customAttributes' => []])
+@props(['url' => null, 'target' => '_self', 'reordering' => false, 'customAttributes' => []])
 
 @if (!$reordering && $attributes->has('wire:sortable.item'))
     @php
@@ -7,11 +7,10 @@
 @endif
 
 <tr
-    {{ $attributes->merge($customAttributes) }}
+    {{ $attributes->merge($customAttributes)->class(['cursor-pointer' => $url]) }}
 
     @if ($url)
-        onclick="window.location='{{ $url }}';"
-        style="cursor:pointer"
+        onclick="window.open('{{ $url }}', '{{ $target }}')"
     @endif
 >
     {{ $slot }}

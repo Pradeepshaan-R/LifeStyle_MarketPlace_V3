@@ -26,7 +26,7 @@ class Client extends Model
         'user_id',
     ];
 
-    protected $enumTypes = [
+    protected $enumLegalTypes = [
         'Sol', 'Pvt', 'Ltd', 'Plc', 'Gov',
     ];
 

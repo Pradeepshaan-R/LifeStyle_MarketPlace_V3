@@ -82,7 +82,7 @@ function select_type(client_type) {
                     <div class="col-sm-3">
                         <select class="form-control" name='company_legal_type' id="company_legal_type" >
                             <option value="">--Type--</option>
-                            @foreach( App\Models\Client::getEnum('Types') as $value)
+                            @foreach( App\Models\Client::getEnum('LegalTypes') as $value)
                             <option value="{{ $value }}" {{ old('title')==$value?'selected':''}}>{{ $value }}</option>
                             @endforeach
                         </select>

@@ -64,26 +64,28 @@ class ClientController extends Controller
             $user->type = 'admin';
             $user->name = $request->name;
             $user->email = $request->email;
+            $user->password = "secret";
             $user->save();
             User::find($user->id)->assignRole('Client');
 
             //create company record
-            if ($request->client_type == "Company") {
-                $client = new Client();
-                $client->type = $request->client_type;
+
+            $client = new Client();
+            $client->type = $request->type;
+            $client->tenant_id = auth()->user()->user_extra->tenant->id; //currently logged in user's tenant_id
+            $client->user_id = $user->id;
+            if ($request->type == "Company") {
                 $client->company_name = $request->company_name;
                 $client->company_phone = $request->company_phone;
                 $client->company_email = $request->company_email;
-                $client->tenant_id = auth()->user()->user_extra->tenant->id; //currently logged in user's tenant_id
-                $client->user_id = $user->id;
-                $client->save();
+                $client->company_legal_type = $request->company_legal_type;
             }
+            $client->save();
 
             //create user_extra
             $user_extra = new UserExtra();
-            $user_extra->type = 'admin';
-            $user_extra->name = $request->title;
-            $user_extra->email = $request->phone;
+            $user_extra->title = $request->title;
+            $user_extra->phone = $request->phone;
             $user_extra->tenant_id = auth()->user()->user_extra->tenant->id;
             $user_extra->user_id = $user->id;
             $user_extra->save();
@@ -93,6 +95,7 @@ class ClientController extends Controller
         } catch (Exception $ex) {
             DB::rollBack();
             $this->message = 'Adding Unsuccessful';
+            dd($ex);
         }
         return redirect('admin/client')->withFlashInfo($this->message);
     }
